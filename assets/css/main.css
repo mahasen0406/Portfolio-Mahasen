@@ -66,6 +66,39 @@
   scroll-behavior: smooth;
 }
 
+/* Social Links in Hero Section */
+.hero .social-links {
+  margin-top: 20px;
+}
+
+.hero .social-links a {
+  color: #fff; /* White color for icons */
+  font-size: 24px;
+  margin: 0 15px;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.hero .social-links a:hover {
+  color: #00aaff; /* Accent color on hover */
+  transform: translateY(-5px); /* Slight upward movement on hover */
+}
+
+/* Style for the Google Scholar Icon */
+.hero .social-links a .social-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  filter: invert(100%); /* Make the icon white */
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.hero .social-links a:hover .social-icon {
+  filter: invert(60%); /* Slightly change color on hover */
+  transform: translateY(-5px);
+}
+
+
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
@@ -613,6 +646,15 @@ h6 {
 
   .header.scrolled {
     padding: 10px 10px;
+  }
+  .hero .social-links a {
+    font-size: 20px;
+    margin: 0 10px;
+  }
+
+  .hero .social-links a .social-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
