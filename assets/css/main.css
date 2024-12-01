@@ -152,7 +152,6 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #000000;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
@@ -160,6 +159,31 @@ h6 {
   padding: 20px 0;
   transition: all 0.5s;
   z-index: 997;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: black;
+}
+
+.hero .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, position 0.3s ease;
+  z-index: 1000; /* Ensure the header is above other elements */
+}
+
+/* Header style after scrolling: fixed at top with black background */
+.header.scrolled {
+  position: fixed;
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header .logo {
