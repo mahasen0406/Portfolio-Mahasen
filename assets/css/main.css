@@ -171,6 +171,11 @@ h6 {
   animation: php-email-form-loading 1s linear infinite;
 }
 
+/* Allow text selection for the email link */
+.contact .info-item a {
+  user-select: text;
+}
+
 @keyframes php-email-form-loading {
   0% {
     transform: rotate(0deg);
