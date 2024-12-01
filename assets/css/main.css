@@ -607,6 +607,13 @@ h6 {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
+  .hero .header {
+    padding: 20px 0px;
+  }
+
+  .header.scrolled {
+    padding: 10px 10px;
+  }
 }
 
 /*--------------------------------------------------------------
