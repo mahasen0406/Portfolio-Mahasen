@@ -12,7 +12,7 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Futura", sans-serif; /* Paragraph text */
+  --default-font: "Helvetica Neue", sans-serif; /* Paragraph text */
   --heading-font: "Playfair Display", serif; /* Titles/Headings */
   --nav-font: "Poppins", sans-serif; /* Navigation font (can stay the same or be updated) */
 }
