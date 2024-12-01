@@ -248,4 +248,19 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  document.addEventListener('DOMContentLoaded', function() {
+    var emailElement = document.getElementById('email-address');
+    emailElement.addEventListener('click', function() {
+      var emailText = emailElement.textContent.trim();
+
+      // Copy the email text to the clipboard
+      navigator.clipboard.writeText(emailText).then(function() {
+        // Show a tooltip or alert to indicate success
+        alert('Email address copied to clipboard!');
+      }, function(err) {
+        console.error('Could not copy text: ', err);
+      });
+    });
+  });
+
 })();
