@@ -1,0 +1,121 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Testimonials Section
+--------------------------------------------------------------*/
+.testimonials {
+  padding: 80px 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    background: color-mix(in srgb, var(--background-color), transparent 30%);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  .testimonials-bg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 3;
+  }
+
+  .testimonials-carousel,
+  .testimonials-slider {
+    overflow: hidden;
+  }
+
+  .testimonial-item {
+    text-align: center;
+
+    .testimonial-img {
+      width: 100px;
+      border-radius: 50%;
+      border: 6px solid color-mix(in srgb, var(--default-color), transparent 85%);
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+    }
+
+    h4 {
+      font-size: 14px;
+      margin: 0 0 15px 0;
+      color: color-mix(in srgb, var(--default-color), transparent 40%);
+    }
+
+    .stars {
+      margin-bottom: 15px;
+
+      i {
+        color: #ffc107;
+        margin: 0 1px;
+      }
+    }
+
+    .quote-icon-left,
+    .quote-icon-right {
+      color: color-mix(in srgb, var(--default-color), transparent 40%);
+      font-size: 26px;
+      line-height: 0;
+    }
+
+    .quote-icon-left {
+      display: inline-block;
+      left: -5px;
+      position: relative;
+    }
+
+    .quote-icon-right {
+      display: inline-block;
+      right: -5px;
+      position: relative;
+      top: 10px;
+      transform: scale(-1, -1);
+    }
+
+    p {
+      font-style: italic;
+      margin: 0 auto 15px auto;
+    }
+  }
+
+  .swiper-wrapper {
+    height: auto;
+  }
+
+  .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background-color: color-mix(in srgb, var(--default-color), transparent 50%);
+      opacity: .5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: var(--default-color);
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .testimonial-item p {
+      width: 80%;
+    }
+  }
+}
