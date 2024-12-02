@@ -1430,6 +1430,14 @@ section,
   padding: 30px;
 }
 
+.hidden-content {
+  display: none;
+}
+
+.collapsed-content {
+  overflow: hidden;
+}
+
 @media (max-width: 575px) {
   .contact .php-email-form {
     padding: 20px;

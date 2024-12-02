@@ -263,4 +263,17 @@
     });
   });
 
+  document.getElementById("toggle-button").addEventListener("click", function () {
+    const hiddenContent = document.getElementById("story-hidden");
+    const button = this;
+  
+    if (hiddenContent.style.display === "none" || hiddenContent.style.display === "") {
+      hiddenContent.style.display = "block";
+      button.textContent = "Read Less";
+    } else {
+      hiddenContent.style.display = "none";
+      button.textContent = "Read More";
+    }
+  });
+
 })();
