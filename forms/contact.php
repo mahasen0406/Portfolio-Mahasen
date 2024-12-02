@@ -18,13 +18,13 @@
 
   // Uncomment below code if you want to use SMTP to send emails.
   
-  $contact->smtp = array(
-    'host' => 'smtp.gmail.com',
-    'username' => 'naveenm.weerasinghe@gmail.com',
-    'password' => 'cyya cfla qfgl chpz',
-    'port' => '587', // Adjust port according to your SMTP server settings
-    'encryption' => 'tls' // Possible values 'ssl' or 'tls'
-  );
+  // $contact->smtp = array(
+  //   'host' => 'smtp.gmail.com',
+  //   'username' => 'naveenm.weerasinghe@gmail.com',
+  //   'password' => '1',
+  //   'port' => '587', // Adjust port according to your SMTP server settings
+  //   'encryption' => 'tls' // Possible values 'ssl' or 'tls'
+  // );
 
   $contact->add_message($contact->from_name, 'Name');
   $contact->add_message($contact->from_email, 'Email');
