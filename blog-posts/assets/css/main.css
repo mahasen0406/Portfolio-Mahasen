@@ -405,6 +405,56 @@ h6 {
     cursor: pointer;
     transition: color 0.3s;
   }
+  /* Base styles for the container */
+.menu-icon {
+  width: 25px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Base styles for each bar */
+.menu-icon .bar {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: white; /* Adjust color as needed */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Positioning the bars */
+.menu-icon .bar:nth-child(1) {
+  top: 0;
+}
+
+.menu-icon .bar:nth-child(2) {
+  top: 8px;
+}
+
+.menu-icon .bar:nth-child(3) {
+  bottom: 0;
+}
+
+/* Active (toggled) state */
+.menu-icon.active .bar:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.menu-icon.active .bar:nth-child(2) {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.menu-icon.active .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 8px;
+}
+
+/* Optional: If your header changes color on scroll, 
+   you may need to adjust the bar color in that scenario */
 
   .navmenu {
     padding: 0;
@@ -499,7 +549,7 @@ h6 {
   }
 
   .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
+    color: transparent;
     position: absolute;
     font-size: 32px;
     top: 15px;
