@@ -250,13 +250,21 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     var emailElement = document.getElementById('email-address');
+    var toastContainer = document.getElementById('toast-container');
+  
     emailElement.addEventListener('click', function() {
       var emailText = emailElement.textContent.trim();
-
+  
       // Copy the email text to the clipboard
       navigator.clipboard.writeText(emailText).then(function() {
-        // Show a tooltip or alert to indicate success
-        alert('Email address copied to clipboard!');
+        // Show the custom toast
+        toastContainer.classList.add('show');
+  
+        // Hide it after 3 seconds
+        setTimeout(function() {
+          toastContainer.classList.remove('show');
+        }, 3000);
+  
       }, function(err) {
         console.error('Could not copy text: ', err);
       });
