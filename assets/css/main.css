@@ -259,6 +259,117 @@ h6 {
   border-color: #004085;
 }
 
+#blog-archive {
+  padding: 60px 0;
+  background: #f9f9f9; /* Light, neutral background to set this section apart */
+  border-top: 1px solid #e0e0e0; /* Soft dividing line from previous sections */
+}
+
+#blog-archive h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+#blog-archive p {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Year Wrapper */
+.year-archive {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Year Title */
+.year-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Archive List */
+.archive-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.archive-list li {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Links */
+.archive-list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.archive-list a:hover {
+  color: #007bff; /* Accent color on hover */
+  text-decoration: underline;
+}
+
+/* Date Meta */
+.date-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-left: 10px;
+}
+
+#blog-archive .archive-list {
+  list-style: disc; /* Use default bullet points */
+  padding-left: 20px; /* Add some left padding so bullets are not flush with the edge */
+  margin: 0;
+}
+
+#blog-archive .archive-list li {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Links now appear in blue */
+.archive-list a {
+  text-decoration: none;
+  color: #007bff; /* Bootstrap primary blue, adjust as needed */
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.archive-list a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  #blog-archive {
+    padding: 40px 10px;
+  }
+
+  .year-title {
+    font-size: 1.5rem;
+  }
+
+  .archive-list a {
+    font-size: 1rem;
+  }
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
