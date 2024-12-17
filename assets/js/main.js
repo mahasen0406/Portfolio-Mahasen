@@ -260,10 +260,62 @@
         // Show the custom toast
         toastContainer.classList.add('show');
   
-        // Hide it after 3 seconds
-        setTimeout(function() {
-          toastContainer.classList.remove('show');
+        // Set a timeout to hide it after 3 seconds (if the user doesn't interact)
+        var autoHideTimeout = setTimeout(function() {
+          hideToast();
         }, 3000);
+  
+        // Click-to-hide functionality for both desktop and mobile
+        function onClickHide() {
+          hideToast();
+        }
+  
+        // Touch-to-hide (swipe down) functionality for mobile
+        let startY = null;
+        let dragged = false;
+        const threshold = 30; // The user must drag down at least 30px
+  
+        function onTouchStart(e) {
+          startY = e.touches[0].clientY;
+          dragged = false;
+        }
+  
+        function onTouchMove(e) {
+          let currentY = e.touches[0].clientY;
+          let diff = currentY - startY;
+          if (diff > threshold) {
+            dragged = true;
+          }
+        }
+  
+        function onTouchEnd() {
+          if (dragged) {
+            hideToast();
+          }
+          startY = null;
+          dragged = false;
+        }
+  
+        // Hide function that also cleans up listeners
+        function hideToast() {
+          toastContainer.classList.remove('show');
+          cleanupListeners();
+        }
+  
+        // Cleanup event listeners after hiding to prevent build-up
+        function cleanupListeners() {
+          toastContainer.removeEventListener('click', onClickHide);
+          toastContainer.removeEventListener('touchstart', onTouchStart);
+          toastContainer.removeEventListener('touchmove', onTouchMove);
+          toastContainer.removeEventListener('touchend', onTouchEnd);
+          clearTimeout(autoHideTimeout);
+        }
+  
+        // Add event listeners
+        toastContainer.addEventListener('click', onClickHide);
+        toastContainer.addEventListener('touchstart', onTouchStart, { passive: true });
+        toastContainer.addEventListener('touchmove', onTouchMove, { passive: true });
+        toastContainer.addEventListener('touchend', onTouchEnd);
   
       }, function(err) {
         console.error('Could not copy text: ', err);
@@ -305,5 +357,6 @@
       });
     });
   });
+
 
 })();
