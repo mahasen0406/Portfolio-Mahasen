@@ -248,78 +248,51 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var emailElement = document.getElementById('email-address');
-    var toastContainer = document.getElementById('toast-container');
-  
-    emailElement.addEventListener('click', function() {
-      var emailText = emailElement.textContent.trim();
-  
-      // Copy the email text to the clipboard
-      navigator.clipboard.writeText(emailText).then(function() {
-        // Show the custom toast
-        toastContainer.classList.add('show');
-  
-        // Set a timeout to hide it after 3 seconds (if the user doesn't interact)
-        var autoHideTimeout = setTimeout(function() {
-          hideToast();
-        }, 3000);
-  
-        // Click-to-hide functionality for both desktop and mobile
-        function onClickHide() {
-          hideToast();
-        }
-  
-        // Touch-to-hide (swipe down) functionality for mobile
-        let startY = null;
-        let dragged = false;
-        const threshold = 30; // The user must drag down at least 30px
-  
-        function onTouchStart(e) {
-          startY = e.touches[0].clientY;
-          dragged = false;
-        }
-  
-        function onTouchMove(e) {
-          let currentY = e.touches[0].clientY;
-          let diff = currentY - startY;
-          if (diff > threshold) {
-            dragged = true;
-          }
-        }
-  
-        function onTouchEnd() {
-          if (dragged) {
-            hideToast();
-          }
-          startY = null;
-          dragged = false;
-        }
-  
-        // Hide function that also cleans up listeners
-        function hideToast() {
-          toastContainer.classList.remove('show');
-          cleanupListeners();
-        }
-  
-        // Cleanup event listeners after hiding to prevent build-up
-        function cleanupListeners() {
-          toastContainer.removeEventListener('click', onClickHide);
-          toastContainer.removeEventListener('touchstart', onTouchStart);
-          toastContainer.removeEventListener('touchmove', onTouchMove);
-          toastContainer.removeEventListener('touchend', onTouchEnd);
-          clearTimeout(autoHideTimeout);
-        }
-  
-        // Add event listeners
-        toastContainer.addEventListener('click', onClickHide);
-        toastContainer.addEventListener('touchstart', onTouchStart, { passive: true });
-        toastContainer.addEventListener('touchmove', onTouchMove, { passive: true });
-        toastContainer.addEventListener('touchend', onTouchEnd);
-  
-      }, function(err) {
+  document.addEventListener('DOMContentLoaded', function () {
+    const emailElement = document.getElementById('email-address');
+    const toastContainer = document.getElementById('toast-container');
+    let touchStartY = null;
+
+    // Function to show the toast
+    function showToast(message) {
+      const toastMessage = toastContainer.querySelector('.toast-message');
+      toastMessage.textContent = message;
+      toastContainer.classList.add('show');
+
+      // Auto-hide after 3 seconds
+      setTimeout(hideToast, 3000);
+    }
+
+    // Function to hide the toast
+    function hideToast() {
+      toastContainer.classList.remove('show');
+    }
+
+    // Copy email to clipboard and show toast
+    emailElement.addEventListener('click', function () {
+      const emailText = emailElement.textContent.trim();
+
+      navigator.clipboard.writeText(emailText).then(() => {
+        showToast('Email copied to clipboard! ✉️');
+      }).catch(err => {
         console.error('Could not copy text: ', err);
       });
+    });
+
+    // Hide toast on click
+    toastContainer.addEventListener('click', hideToast);
+
+    // Touch-to-hide functionality (for mobile devices)
+    toastContainer.addEventListener('touchstart', function (e) {
+      touchStartY = e.touches[0].clientY;
+    });
+
+    toastContainer.addEventListener('touchmove', function (e) {
+      const touchEndY = e.touches[0].clientY;
+
+      if (touchEndY - touchStartY > 30) { // If swiped down
+        hideToast();
+      }
     });
   });
 
