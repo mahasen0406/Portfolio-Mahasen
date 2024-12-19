@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="assets/css/let-it-snow.css" rel="stylesheet">
+
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -663,7 +665,87 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script>
+    const NUMBER_OF_SNOWFLAKES = 100; // Same number of snowflakes
+    const MAX_SNOWFLAKE_SIZE = 3; // Same size
+    const MAX_SNOWFLAKE_SPEED = 0.5; // Same speed
+    const SNOWFLAKE_COLOUR = '#ddd'; // Snowflake color
+    const snowflakes = [];
+  
+    // Get the hero section
+    const heroSection = document.querySelector('#hero');
+  
+    // Create a canvas for the snowflakes
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'absolute';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '2'; // Ensure it is above hero content but below other overlays
+    heroSection.style.position = 'relative'; // Make hero section relative for proper canvas positioning
+    heroSection.appendChild(canvas);
+  
+    const ctx = canvas.getContext('2d');
+  
+    const resizeCanvas = () => {
+      canvas.width = heroSection.offsetWidth;
+      canvas.height = heroSection.offsetHeight;
+    };
+    resizeCanvas(); // Initial canvas size
+  
+    window.addEventListener('resize', resizeCanvas); // Adjust canvas size on resize
+  
+    // Function to create a snowflake
+    const createSnowflake = () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.floor(Math.random() * MAX_SNOWFLAKE_SIZE) + 1,
+      color: SNOWFLAKE_COLOUR,
+      speed: Math.random() * MAX_SNOWFLAKE_SPEED + 1,
+      sway: Math.random() - 0.5,
+    });
+  
+    // Function to draw a snowflake
+    const drawSnowflake = (snowflake) => {
+      ctx.beginPath();
+      ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+      ctx.fillStyle = snowflake.color;
+      ctx.fill();
+      ctx.closePath();
+    };
+  
+    // Function to update snowflake position
+    const updateSnowflake = (snowflake) => {
+      snowflake.y += snowflake.speed;
+      snowflake.x += snowflake.sway;
+      if (snowflake.y > canvas.height) {
+        Object.assign(snowflake, createSnowflake());
+        snowflake.y = -snowflake.radius; // Reset above the canvas
+      }
+    };
+  
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+      snowflakes.forEach((snowflake) => {
+        updateSnowflake(snowflake);
+        drawSnowflake(snowflake);
+      });
+  
+      requestAnimationFrame(animate);
+    };
+  
+    // Generate snowflakes
+    for (let i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
+      snowflakes.push(createSnowflake());
+    }
+  
+    // Start animation
+    animate();
+  </script>
   <!-- Toast Container -->
   <div id="toast-container">
     <i class="toast-icon bi bi-check-circle"></i>
