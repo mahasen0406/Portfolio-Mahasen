@@ -55,6 +55,7 @@
             <ul>
               <li><a href="#hero" class="active">Home<br></a></li>
               <li><a href="#latest-snippets">Latest posts</a></li>
+              <li><a href="#older-posts">Previous posts</a></li>
               <li><a href="archive.html">Archives</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><a href="index.html">To my portfolio<br></a></li>
@@ -111,6 +112,16 @@
           <!-- Story Snippet Box 1 -->
           <div class="col-lg-6 mb-4">
             <div class="snippet-box p-3 border rounded shadow-sm">
+              <h3 class="snippet-title">Chained by Choices</h3>
+              <p class="snippet-meta">By <strong>Mahasen Weerasinghe</strong> | Written on December, 2024</p>
+              <p class="snippet-excerpt">
+                You always wished you hadn’t called back. Truth was that you could not escape your sins of the past where you were stuck and planted in hell with chains to your neck...
+              </p>
+              <a href="blog-posts/blog_paris.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="snippet-box p-3 border rounded shadow-sm">
               <h3 class="snippet-title">My journey though anxiety</h3>
               <p class="snippet-meta">By <strong>Mahasen Weerasinghe</strong> | Written on December, 2024</p>
               <p class="snippet-excerpt">
@@ -120,45 +131,36 @@
             </div>
           </div>
     
-          <!-- Story Snippet Box 2 -->
-          <div class="col-lg-6 mb-4">
-            <div class="snippet-box p-3 border rounded shadow-sm">
-              <h3 class="snippet-title">"Sorry Zeus!"</h3>
-              <p class="snippet-meta">By <strong>Mahasen Weerasinghe</strong> | Written on March, 2024</p>
-              <p class="snippet-excerpt">
-                The ground started shaking as my drink shot out of its glass towards the ceiling. Mary, wearing a red dress, is now drenched in a martini of her own. Her eyes look terrified...
-              </p>
-              <a href="blog-posts/blog_zeus.html" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-    
         </div>
       </div>
     </section>
 
-    <!-- <section id="older-posts" class="section dark-background position-relative">
+    <section id="older-posts" class="section dark-background position-relative">
+      <div class="container">
+        <h2 class="older-posts-title text-center">Previous Posts</h2>
+      </div>
       <div class="container-fluid" data-aos="fade-up">
-        <button class="scroll-btn scroll-btn-left" type="button">
+        <!-- <button class="scroll-btn scroll-btn-left" type="button">
           <i class="bi bi-chevron-left"></i>
         </button>
         <button class="scroll-btn scroll-btn-right" type="button">
           <i class="bi bi-chevron-right"></i>
-        </button>
+        </button> -->
     
         <div class="older-posts-wrapper d-flex align-items-stretch overflow-hidden position-relative">
           <div class="older-posts-scroll d-flex" style="overflow-x:auto; scroll-behavior:smooth; white-space:nowrap;">
             
             
             <div class="older-post-item p-3 border rounded shadow-sm me-3" style="flex:0 0 auto; width:250px;">
-              <h3 class="older-post-title">"Shadows of Delphi"</h3>
-              <p class="older-post-meta">By <strong>Mahasen Weerasinghe</strong> | June, 2023</p>
+              <h3 class="older-post-title">"Sorry Zeus!"</h3>
+              <p class="older-post-meta">By <strong>Mahasen Weerasinghe</strong> | March, 2024</p>
               <p class="older-post-excerpt">
-                Beneath the oracular whispers of Delphi’s ruins, a hidden truth lingers, waiting to be unearthed by those who dare to listen…
+                The ground started shaking as my drink shot out of its glass towards the ceiling...
               </p>
-              <a href="story-delphi.html" class="btn btn-light mt-auto">Read More</a>
+              <a href="../blog-posts/blog_zeus.html" class="btn btn-light mt-auto">Read More</a>
             </div>
     
-            <div class="older-post-item p-3 border rounded shadow-sm me-3" style="flex:0 0 auto; width:250px;">
+            <!-- <div class="older-post-item p-3 border rounded shadow-sm me-3" style="flex:0 0 auto; width:250px;">
               <h3 class="older-post-title">"Echoes in the Amphitheatre"</h3>
               <p class="older-post-meta">By <strong>Mahasen Weerasinghe</strong> | December, 2023</p>
               <p class="older-post-excerpt">
@@ -225,14 +227,14 @@
                 High in the mountains stands a crumbling temple whose patrons vanished long ago, leaving only cryptic carvings in stone…
               </p>
               <a href="story-forgotten.html" class="btn btn-light mt-auto">Read More</a>
-            </div>
+            </div> -->
     
             
             
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
     
     <style>
       /* Positioning and styling for the scroll buttons */
@@ -269,8 +271,25 @@
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
       }
+      
       .older-post-item {
         white-space: normal; /* Allow line breaks inside each post item */
+      }
+
+      .older-posts-title {
+        font-size: 2rem; /* Adjust font size as needed */
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #fff; /* Adjust color to match the dark background */
+      }
+
+      #older-posts {
+        padding: 40px 20px; /* Add spacing to the section */
+      }
+
+      .older-posts-wrapper {
+        margin-top: 20px; /* Space between title and posts */
       }
     </style>
     
